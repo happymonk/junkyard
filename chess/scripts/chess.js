@@ -6,7 +6,7 @@ var moves = { nw:[-1,-1] , n:[-1,0] , ne:[-1, 1],
 };
 
 var pieces = {pawn	:{ID:1, movesWhite:[], 
-						    movesBlack[]
+						    movesBlack:[]
 					},
 			  knight:{ID:2, moves:[[-2,-1],[-2,1],[-1,-2],[-1,2],
 								   [ 1,-2],[ 1,2],[ 2,-1],[ 2,1]]
