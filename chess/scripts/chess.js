@@ -1,8 +1,34 @@
 var chessboard = new Chessboard;
-var pieces = {pawn:1,knight:2,bishop:3,rook:4,queen:5,king:6}
+
+var moves = { nw:[-1,-1] , n:[-1,0] , ne:[-1, 1],
+			   w:[ 0,-1] ,             e:[ 0, 1],
+			  sw:[ 1,-1] , s:[ 1,0] , se:[ 1, 1], 
+};
+
+var pieces = {pawn:{ID:1},
+			  knight:{ID:2, moves:[[-2,-1],[-2,1],[-1,-2],[-1,2],
+								   [ 1,-2],[ 1,2],[ 2,-1],[ 2,1]]},
+			  
+			  bishop:{ID:3, moves:[ moves.nw,           moves.ne,
+								    
+									moves.sw, 		    moves.se]},
+			  
+			  rook:{ID:4 , moves:[ 			   moves.n,
+								    moves.w,        	 moves.e,
+											   moves.s]},
+			  
+			  queen:{ID:5 , moves:[ moves.nw , moves.n , moves.ne,
+								    moves.w  ,           moves.e,
+									moves.sw , moves.s , moves.se]},
+			  
+			  king:{ID:6 ,  moves:[ moves.nw , moves.n , moves.ne,
+								    moves.w  ,           moves.e,
+									moves.sw  ,moves.s , moves.se]}
+};
+
 
 // display current chessboard state in HTML
-function displayChessboard() {
+function displayChessboard() { 
   document.body.innerHTML = "";
   chessboard.forEach(function(e){
                        document.body.innerHTML += e.join("&nbsp;&nbsp;&nbsp;") + "<br>"
@@ -27,7 +53,9 @@ function placePiece(piece, row, column) {
 	if(piece == undefined || row == undefined || column == undefined) {
 		return "Error: missing one or more paramaters";
 	}
-	chessboard[row][column] = piece;
+	if (!isOccupied(chessboard[row][column])){
+		chessboard[row][column] = piece.ID;
+	}	
 	displayChessboard();
 }
 
