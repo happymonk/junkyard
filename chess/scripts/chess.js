@@ -5,25 +5,32 @@ var moves = { nw:[-1,-1] , n:[-1,0] , ne:[-1, 1],
 			  sw:[ 1,-1] , s:[ 1,0] , se:[ 1, 1], 
 };
 
-var pieces = {pawn:{ID:1},
+var pieces = {pawn	:{ID:1, movesWhite:[], 
+						    movesBlack[]
+					},
 			  knight:{ID:2, moves:[[-2,-1],[-2,1],[-1,-2],[-1,2],
-								   [ 1,-2],[ 1,2],[ 2,-1],[ 2,1]]},
+								   [ 1,-2],[ 1,2],[ 2,-1],[ 2,1]]
+					},
 			  
 			  bishop:{ID:3, moves:[ moves.nw,           moves.ne,
 								    
-									moves.sw, 		    moves.se]},
+									moves.sw, 		    moves.se]
+					},
 			  
-			  rook:{ID:4 , moves:[ 			   moves.n,
+			  rook	:{ID:4, moves:[ 			   moves.n,
 								    moves.w,        	 moves.e,
-											   moves.s]},
+											   moves.s]
+					},
 			  
-			  queen:{ID:5 , moves:[ moves.nw , moves.n , moves.ne,
+			  queen	:{ID:5, moves:[ moves.nw , moves.n , moves.ne,
 								    moves.w  ,           moves.e,
-									moves.sw , moves.s , moves.se]},
+									moves.sw , moves.s , moves.se]
+					},
 			  
-			  king:{ID:6 ,  moves:[ moves.nw , moves.n , moves.ne,
+			  king	:{ID:6, moves:[ moves.nw , moves.n , moves.ne,
 								    moves.w  ,           moves.e,
-									moves.sw  ,moves.s , moves.se]}
+									moves.sw  ,moves.s , moves.se]
+					}
 };
 
 
